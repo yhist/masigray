@@ -171,4 +171,55 @@ window.onload = function () {
     }
   });
 
+  // 대리점 정보를 생성하는 객체생성함수
+  let storeData = [
+    {
+      link: '#',
+      title: '합천점',
+      pic: '프랜차이즈1.jpg'
+    },
+    {
+      link: '#',
+      title: '신천점',
+      pic: '프랜차이즈4.jpg'
+    },
+    {
+      link: '#',
+      title: '복현푸르지오점',
+      pic: '프랜차이즈2.jpg'
+    },
+    {
+      link: '#',
+      title: '대곡역점',
+      pic: '프랜차이즈3.jpg'
+    }
+  ];
+  
+  function StoreMake(_link, _title, _pic){
+    this.link = _link;
+    this.title = _title;
+    this.pic = _pic;
+  }
+
+  let storeArr = [
+    new StoreMake(storeData[0].link, storeData[0].title, storeData[0].pic),
+    new StoreMake(storeData[1].link, storeData[1].title, storeData[1].pic),
+    new StoreMake(storeData[2].link, storeData[2].title, storeData[2].pic),
+    new StoreMake(storeData[3].link, storeData[3].title, storeData[3].pic)
+  ];
+  // 화면 출력함수
+  function storeShow(_tag, _obj){
+    let html = `
+    <a fref="${_obj.link}">
+      <img src="images/${_obj.pic}">
+      <span>${_obj.title}</span>
+    </a>
+    `;
+    $(_tag).html(html);
+  }
+  storeShow('#store-1', storeArr[0]);
+  storeShow('#store-2', storeArr[1]);
+  storeShow('#store-3', storeArr[2]);
+  storeShow('#store-4', storeArr[3]);
+
 }
